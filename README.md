@@ -18,4 +18,3 @@ The [requirements.txt](./requirements.txt) has the following packages:
 | [whitenoise](https://pypi.org/project/whitenoise/) | Static file serving for WSGI applications, used in the deployed app. <br><br> This package is used in the [azureproject/production.py](./azureproject/production.py) file, which configures production settings. |
 | [azure-blob-storage](https://pypi.org/project/azure-storage/) | Microsoft Azure Storage SDK for Python |
 | [azure-identity](https://pypi.org/project/azure-identity/) | Microsoft Azure Identity Library for Python |
-
