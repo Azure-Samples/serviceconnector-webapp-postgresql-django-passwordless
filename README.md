@@ -1,6 +1,8 @@
-# Deploy a Python (Django) web app with Azure Database for PostgreSQL and Azure Storage
+# Deploy a Python (Django) app to Azure with Managed Identity 
 
-This is a Python web app using the Django framework and the Azure Database for PostgreSQL relational database service and Azure Storage. The Django app is hosted in a fully managed Azure App Service. This app is designed to be be run locally and then deployed to Azure. For more information on how to use this web app, see the  [*TBD*](TBD).
+This Python web app using the Django framework can be deployed to Azure App Service, and uses the Azure Database for PostgreSQL relational database service and Azure Storage. When deployed Managed Identity is used to allow the App Service to connect to the database and storage resources.
+
+The Django app is hosted in a fully managed Azure App Service. This app is designed to be be run locally and then deployed to Azure. For more information on how to use this web app, see the  [*TBD*](TBD).
 
 If you need an Azure account, you can [create on for free](https://azure.microsoft.com/free/).
 
