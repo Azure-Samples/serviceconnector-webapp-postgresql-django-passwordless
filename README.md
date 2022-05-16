@@ -6,7 +6,7 @@ The Django app is hosted in a fully managed Azure App Service. This app is desig
 
 If you need an Azure account, you can [create on for free](https://azure.microsoft.com/free/).
 
-A Flask sample application is also available for the article at https://github.com/Azure-Samples/msdocs-flask-three-azure-services.
+A Flask sample application with similar functionality is at https://github.com/Azure-Samples/msdocs-flask-web-app-managed-identity.
 
 ## Requirements
 
