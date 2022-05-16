@@ -20,3 +20,17 @@ The [requirements.txt](./requirements.txt) has the following packages:
 | [whitenoise](https://pypi.org/project/whitenoise/) | Static file serving for WSGI applications, used in the deployed app. <br><br> This package is used in the [azureproject/production.py](./azureproject/production.py) file, which configures production settings. |
 | [azure-blob-storage](https://pypi.org/project/azure-storage/) | Microsoft Azure Storage SDK for Python |
 | [azure-identity](https://pypi.org/project/azure-identity/) | Microsoft Azure Identity Library for Python |
+
+## DefaultAzureCredential
+
+The [DefaultAzureCredential](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential) is used in the [views.py](./restaurant_review/views.py) file. For example:
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+azure_credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+blob_service_client = BlobServiceClient(
+    account_url=account_url,
+    credential=azure_credential)
+```
