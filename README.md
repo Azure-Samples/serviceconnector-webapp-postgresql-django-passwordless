@@ -35,7 +35,7 @@ blob_service_client = BlobServiceClient(
     credential=azure_credential)
 ```
 
-The DefaultAzureCredential is also used to get a token for PostgresSQL in the [get_token.py](./azureproject/get_token.py) file when running in Azure.
+The DefaultAzureCredential is also used to get a token for PostgreSQL in the [get_token.py](./azureproject/get_token.py) file when running in Azure.
 
 ```python
 azure_credential = DefaultAzureCredential()
