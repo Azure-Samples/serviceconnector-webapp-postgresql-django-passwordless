@@ -43,4 +43,6 @@ token = azure_credential.get_token("https://ossrdbms-aad.database.windows.net")
 conf.settings.DATABASES['default']['PASSWORD'] = token.token
 ```
 
+## start.sh
 
+The start file sets a SECRET_KEY and runs the Django migrate command. The SECRET_KEY is used to encrypt session data. The migrate command creates the database tables.
