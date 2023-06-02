@@ -2,7 +2,7 @@
 
 This Python app is a simple restaurant review application using the [Django](https://www.djangoproject.com/) framework. The app uses Azure App Service, Azure Database for PostgreSQL relational database service, and Azure Storage. When deployed, Azure managed identity allows the web app hosted in App Service to connect to the database and storage resources without the need to specify sensitive connection info in code or environment variables.
 
-This sample app can be run locally and then deployed to Azure, hosted in a fully managed Azure App Service. For more information on how to use this web app, see the  [Overview: Deploy a Django web app to Azure with managed identity](https://docs.microsoft.com/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli).
+This sample app can be [run locally](#running-locally) and then deployed to Azure, hosted in a fully managed Azure App Service. For more information on how to deploy this to Azure, see the  [Overview: Deploy a Django web app to Azure with managed identity](https://docs.microsoft.com/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli).
 
 If you need an Azure account, you can [create on for free](https://azure.microsoft.com/free/).
 
@@ -45,4 +45,17 @@ conf.settings.DATABASES['default']['PASSWORD'] = token.token
 
 ## start.sh
 
-The start file sets a SECRET_KEY and runs the Django migrate command. The SECRET_KEY is used to encrypt session data. The migrate command creates the database tables.
+Deployed, the [start.sh](start.sh) file sets a SECRET_KEY and runs the Django migrate command. The SECRET_KEY is used to encrypt session data. The migrate command creates the database tables. Instead of a start.sh you could set the SECRET_KEY as an app setting and run the migrate command manually by ssh'ing into the app service.
+
+## Running locally
+
+To run the app locally, create a copy of *.env.example* and name it *.env*. Then, update the values in the *.env* file with your database and storage connection information. The *.env* file is used by the [manage.py](./manage.py) file to set environment variables.
+
+Running locally can be challenging because if you want to be truly local you need to set up resources locally. For example, you need to install PostgreSQL and create a database. You also need to install Azure Storage Emulator and create a storage account. You can also run PostgreSQL and Azure Storage in Docker containers.
+
+As an alternative
+
+* You can point to resources in Azure and avoid creating them locally.
+* Run in a codespace. For example, see [Create a GitHub Codespaces dev environment with FastAPI and Postgres](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-codespaces)
+
+Regardless of how you connect to resources, you need to run the Django migrate command in the *start.sh* before the app starts up.
