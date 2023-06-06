@@ -51,11 +51,11 @@ Deployed, the [start.sh](start.sh) file sets a SECRET_KEY and runs the Django mi
 
 To run the app locally, create a copy of *.env.example* and name it *.env*. Then, update the values in the *.env* file with your database and storage connection information. The *.env* file is used by the [manage.py](./manage.py) file to set environment variables.
 
-Running locally can be challenging because if you want to be truly local you need to set up resources locally. For example, you need to install PostgreSQL and create a database. You also need to install Azure Storage Emulator and create a storage account. You can also run PostgreSQL and Azure Storage in Docker containers.
+Running locally can be challenging because if you want to be truly local you need to set up resources locally. For example, you need to install PostgreSQL and create a database. You also need to install Azure Storage Emulator and create a storage account.
 
-As an alternative
+As an alternative:
 
 * You can point to resources in Azure and avoid creating them locally.
-* Run in a codespace. For example, see [Create a GitHub Codespaces dev environment with FastAPI and Postgres](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-codespaces)
+* Use GitHub codespace. For example, see [Create a GitHub Codespaces dev environment with FastAPI and Postgres](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-codespaces)
 
 Regardless of how you connect to resources, you need to run the Django migrate command in the *start.sh* before the app starts up.
