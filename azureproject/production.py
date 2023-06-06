@@ -13,8 +13,9 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # DBHOST is only the server name, not the full URL
+# Postgres Flexible server username is DBUSER, not DBUSER@DBHOST
 hostname = os.environ['DBHOST']
-username = os.environ['DBUSER'] + "@" + os.environ['DBHOST']
+username = os.environ['DBUSER']
 
 # Configure Postgres database; the full username for PostgreSQL flexible server is
 # username (not @sever-name).
