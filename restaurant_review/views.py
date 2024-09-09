@@ -28,7 +28,7 @@ def details(request, id):
 
     # Get account_url based on environment
     account_url = get_account_url()
-    image_path = account_url + "/" + os.environ['STORAGE_CONTAINER_NAME']
+    image_path = account_url + "/" + get_container_name()
 
     try: 
         restaurant = Restaurant.objects.annotate(avg_rating=Avg('review__rating')).annotate(review_count=Count('review')).get(pk=id)
@@ -105,7 +105,7 @@ def add_review(request, id):
             image_name = str(uuid.uuid4()) + ".png"
             
             # Create blob client
-            blob_client = blob_service_client.get_blob_client(container=os.environ['STORAGE_CONTAINER_NAME'], blob=image_name)
+            blob_client = blob_service_client.get_blob_client(container=get_container_name(), blob=image_name)
             print("\nUploading to Azure Storage as blob:\n\t" + image_name)
 
             # Upload file
@@ -129,6 +129,19 @@ def add_review(request, id):
 def get_account_url():
     # Create LOCAL_USE_AZURE_STORAGE environment variable to use Azure Storage locally. 
     if 'WEBSITE_HOSTNAME' in os.environ or ("LOCAL_USE_AZURE_STORAGE" in os.environ):
-        return "https://%s.blob.core.windows.net" % os.environ['STORAGE_ACCOUNT_NAME']
+        if 'AZURE_STORAGEBLOB_RESOURCEENDPOINT' in os.environ:
+            # From connection string
+            return os.environ['AZURE_STORAGEBLOB_RESOURCEENDPOINT']
+        else:
+            # From env settings
+            return "https://%s.blob.core.windows.net" % os.environ['STORAGE_ACCOUNT_NAME']
     else:
+        # From local .env file
         return os.environ['STORAGE_ACCOUNT_NAME']
+
+def get_container_name():
+    if 'STORAGE_CONTAINER_NAME' not in os.environ:
+        # default container name
+        return 'photos' 
+    else:
+        return os.environ['STORAGE_CONTAINER_NAME']
