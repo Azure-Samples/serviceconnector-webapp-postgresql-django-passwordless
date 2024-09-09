@@ -131,7 +131,7 @@ def get_account_url():
     if 'WEBSITE_HOSTNAME' in os.environ or ("LOCAL_USE_AZURE_STORAGE" in os.environ):
         if 'AZURE_STORAGEBLOB_RESOURCEENDPOINT' in os.environ:
             # From connection string
-            return os.environ['AZURE_STORAGEBLOB_RESOURCEENDPOINT']
+            return os.environ['AZURE_STORAGEBLOB_RESOURCEENDPOINT'].rstrip('/')
         else:
             # From env settings
             return "https://%s.blob.core.windows.net" % os.environ['STORAGE_ACCOUNT_NAME']
