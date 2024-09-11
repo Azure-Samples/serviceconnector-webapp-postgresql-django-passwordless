@@ -2,7 +2,8 @@
 
 This Python app is a simple restaurant review application using the [Django](https://www.djangoproject.com/) framework. The app uses Azure App Service, Azure Database for PostgreSQL relational database service, and Azure Storage. When deployed, Azure managed identity allows the web app hosted in App Service to connect to the database and storage resources without the need to specify sensitive connection info in code or environment variables.
 
-This sample app can be [run locally](#running-locally) and then deployed to Azure, hosted in a fully managed Azure App Service. For more information on how to deploy this to Azure, see the  [Overview: Deploy a Django web app to Azure with managed identity](https://docs.microsoft.com/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli).
+This sample app can be [run locally](#running-locally) and then deployed to Azure, hosted in a fully managed Azure App Service. For more information on how to deploy this to Azure, see the [Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service](https://learn.microsoft.com/en-us/azure/service-connector/tutorial-django-webapp-postgres-cli) by Service Connector, or alternatively see the
+ [Overview: Deploy a Django web app to Azure with managed identity](https://docs.microsoft.com/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli) using manual configurations.
 
 If you need an Azure account, you can [create on for free](https://azure.microsoft.com/free/).
 
